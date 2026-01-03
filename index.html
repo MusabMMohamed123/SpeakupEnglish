@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>SpeakUp English</title>
+  <meta name="description" content="Live Zoom speaking practice for English learners in Somalia and beyond. One lesson every Saturday at 8:00 PM Somalia time. $15 per month." />
+
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+
+  <meta property="og:title" content="SpeakUp English" />
+  <meta property="og:description" content="Speak English every week. Build confidence fast. Live Zoom speaking practice. $15 per month." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google tag (gtag.js) placeholder -->
+  <!-- Paste your Google tag script here -->
+
+  <!-- Meta Pixel placeholder -->
+  <!-- Paste your Meta Pixel script here -->
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --card:#ffffff;
+      --shadow: 0 10px 30px rgba(2,6,23,0.08);
+      --primary:#0b5cff;
+      --primary-dark:#0948c9;
+      --radius:18px;
+      --max:1100px;
+      --pad-desktop:72px;
+      --pad-mobile:48px;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit;}
+    .container{
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 20px;
+    }
+    section{padding: var(--pad-desktop) 0;}
+    @media (max-width: 640px){section{padding: var(--pad-mobile) 0;}}
+
+    /* Top bar */
+    .topbar{
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(226,232,240,0.8);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 200px;
+    }
+    .brand img{
+      width:42px;
+      height:42px;
+      border-radius: 12px;
+      object-fit: cover;
+      border:1px solid var(--border);
+      background:#fff;
+    }
+    .brand-name{
+      font-weight:800;
+      letter-spacing:-0.01em;
+    }
+
+    /* Buttons */
+    .btn-primary, .btn-outline{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration:none;
+      border:1px solid transparent;
+      transition: transform 0.08s ease, background 0.15s ease, border-color 0.15s ease;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+    .btn-primary{background:var(--primary); color:#fff;}
+    .btn-primary:hover{background:var(--primary-dark);}
+    .btn-outline{background:transparent; border-color: var(--border); color: var(--text);}
+    .btn-outline:hover{border-color:#cbd5e1;}
+    .btn-primary:active, .btn-outline:active{transform: translateY(1px);}
+
+    .link-secondary{
+      color: rgba(255,255,255,0.92);
+      text-decoration: underline;
+      font-size: 14px;
+    }
+
+    /* Typography */
+    .hero-title{
+      font-size: clamp(34px, 4vw, 54px);
+      line-height:1.05;
+      margin:0 0 14px 0;
+      letter-spacing:-0.03em;
+    }
+    .hero-subtitle{
+      font-size: clamp(16px, 1.6vw, 18px);
+      color: rgba(255,255,255,0.92);
+      margin:0 0 22px 0;
+      max-width: 740px;
+    }
+    .section-title{
+      font-size: 24px;
+      margin:0 0 14px 0;
+      letter-spacing:-0.01em;
+    }
+    .lead{color:var(--muted); margin: 0 0 18px 0;}
+
+    /* Hero */
+    .hero{
+      position: relative;
+      padding: 78px 0;
+      color:#fff;
+      background:
+        linear-gradient(90deg, rgba(2,6,23,0.78), rgba(2,6,23,0.45)),
+        url('assets/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid rgba(226,232,240,0.5);
+    }
+    @media (max-width: 640px){
+      .hero{padding: 62px 0;}
+    }
+    .hero-wrap{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items:start;
+    }
+    @media (max-width: 900px){.hero-wrap{grid-template-columns: 1fr;}}
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 10px;
+    }
+    .smallline{
+      margin-top: 14px;
+      color: rgba(255,255,255,0.88);
+      font-size: 14px;
+    }
+
+    /* Cards */
+    .card{
+      background: rgba(255,255,255,0.95);
+      border:1px solid rgba(226,232,240,0.9);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      color: var(--text);
+    }
+    .card-title{margin:0 0 12px 0; font-size: 18px; letter-spacing:-0.01em;}
+    .detail-row{
+      display:flex;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+    }
+    .detail-row:first-of-type{border-top: 0;}
+    .detail-key{color: var(--muted); white-space:nowrap;}
+    .detail-val{text-align:right; font-weight:700;}
+
+    /* Lists */
+    ul.list, ol.list-numbered{margin: 0; padding-left: 18px;}
+    ul.list li, ol.list-numbered li{margin: 8px 0;}
+
+    /* Image + text blocks */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items:center;
+    }
+    @media (max-width: 900px){.split{grid-template-columns: 1fr;}}
+    .photo{
+      width:100%;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .photo img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    /* Details grid */
+    .details-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 900px){.details-grid{grid-template-columns: 1fr;}}
+
+    /* Divider */
+    .section-divider{padding: 28px 0;}
+    .divider-line{border-top: 1px solid var(--border); padding-top: 18px;}
+    .divider-label{
+      margin:0;
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .fineprint{margin-top: 14px; color: var(--muted); font-size: 14px;}
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <img src="assets/logo-icon.png" alt="SpeakUp English logo" />
+        <div class="brand-name">SpeakUp English</div>
+      </div>
+      <a class="btn-outline" href="#join">Join</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero section-hero" id="top">
+    <div class="container">
+      <div class="hero-wrap">
+        <div>
+          <h1 class="hero-title">Speak English every week. Build confidence fast.</h1>
+          <p class="hero-subtitle">Live Zoom speaking practice for English learners in Somalia and beyond — taught by a qualified English teacher from Britain.</p>
+
+          <div class="cta-row">
+            <a class="btn-primary" href="https://wa.me/447415630691?text=Hi%20SpeakUp%20English.%20I%20want%20to%20join.%20My%20level%20is%20____.%20Please%20send%20payment%20details%20and%20class%20time." target="_blank" rel="noopener">Join on WhatsApp</a>
+            <a class="link-secondary" href="#somali">Af Somali</a>
+          </div>
+
+          <div class="smallline">One live Zoom lesson every Saturday at 8:00 PM (Somalia time). $15 per month.</div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Quick info</h3>
+          <div class="detail-row"><div class="detail-key">Platform</div><div class="detail-val">Zoom</div></div>
+          <div class="detail-row"><div class="detail-key">Time</div><div class="detail-val">8:00 PM (Somalia time)</div></div>
+          <div class="detail-row"><div class="detail-key">Price</div><div class="detail-val">$15 monthly</div></div>
+          <div class="detail-row"><div class="detail-key">Teacher</div><div class="detail-val">Qualified (UK)</div></div>
+          <div class="detail-row"><div class="detail-key">Support</div><div class="detail-val">WhatsApp</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section class="section-benefits">
+    <div class="container">
+      <div class="split">
+        <div>
+          <h2 class="section-title">What you get</h2>
+          <ul class="list">
+            <li>One live Zoom lesson per week</li>
+            <li>Small speaking groups in breakout rooms</li>
+            <li>Mixed levels in the same class, tasks for basic, intermediate, advanced</li>
+            <li>Clear speaking structure, everyone speaks</li>
+            <li>Lesson recording shared after class</li>
+            <li>Simple optional weekly practice sheet</li>
+          </ul>
+        </div>
+        <div class="photo">
+          <img src="assets/study.jpg" alt="Students studying" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section-how">
+    <div class="container">
+      <div class="split">
+        <div class="photo">
+          <img src="assets/chalk.jpg" alt="English on a chalkboard" loading="lazy">
+        </div>
+        <div>
+          <h2 class="section-title">How it works</h2>
+          <ol class="list-numbered">
+            <li>Message us on WhatsApp</li>
+            <li>Complete a short placement step</li>
+            <li>We place you in a speaking group</li>
+            <li>Join the Saturday Zoom lesson</li>
+            <li>Pay $15 each month by mobile money</li>
+          </ol>
+
+          <div class="cta-row" style="margin-top:18px;">
+            <a class="btn-primary" href="https://wa.me/447415630691?text=Hi%20SpeakUp%20English.%20I%20want%20to%20join.%20My%20level%20is%20____.%20Please%20send%20payment%20details%20and%20class%20time." target="_blank" rel="noopener">Join on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule and price -->
+  <section class="section-details">
+    <div class="container">
+      <div class="details-grid">
+        <div class="card">
+          <h3 class="card-title">Schedule</h3>
+          <div class="detail-row"><div class="detail-key">Day</div><div class="detail-val">Saturday</div></div>
+          <div class="detail-row"><div class="detail-key">Frequency</div><div class="detail-val">One lesson per week</div></div>
+          <div class="detail-row"><div class="detail-key">Platform</div><div class="detail-val">Zoom</div></div>
+          <div class="detail-row"><div class="detail-key">Class time</div><div class="detail-val">8:00 PM (Somalia time)</div></div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Price</h3>
+          <div class="detail-row"><div class="detail-key">Cost</div><div class="detail-val">$15 per month</div></div>
+          <div class="detail-row"><div class="detail-key">Payment</div><div class="detail-val">Mobile money</div></div>
+          <div class="detail-row"><div class="detail-key">Start</div><div class="detail-val">Join anytime</div></div>
+          <div class="detail-row"><div class="detail-key">Length</div><div class="detail-val">16 weeks per student</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who this is for -->
+  <section class="section-audience">
+    <div class="container">
+      <div class="split">
+        <div>
+          <h2 class="section-title">Who this is for</h2>
+          <ul class="list">
+            <li>Adults and teens who want to speak English more confidently</li>
+            <li>Learners at different levels, from basic to advanced</li>
+            <li>Students, workers, and professionals</li>
+            <li>Anyone who wants weekly speaking practice in a supportive group</li>
+          </ul>
+        </div>
+        <div class="photo">
+          <img src="assets/books.jpg" alt="Books and learning" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why SpeakUp -->
+  <section class="section-why">
+    <div class="container">
+      <div class="split">
+        <div class="photo">
+          <img src="assets/library.jpg" alt="Library shelves" loading="lazy">
+        </div>
+        <div>
+          <h2 class="section-title">What makes SpeakUp different</h2>
+          <ul class="list">
+            <li>Speaking first. You practise, I guide</li>
+            <li>Less teacher talk, more student talk</li>
+            <li>Same lesson structure every week</li>
+            <li>Levels stay private, group placement stays smooth</li>
+            <li>Taught by a qualified English teacher from Britain</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join now -->
+  <section class="section-join" id="join">
+    <div class="container">
+      <h2 class="section-title">Join now</h2>
+      <p class="lead">Message on WhatsApp to start.</p>
+
+      <div class="cta-row">
+        <a class="btn-primary" href="https://wa.me/447415630691?text=Hi%20SpeakUp%20English.%20I%20want%20to%20join.%20My%20level%20is%20____.%20Please%20send%20payment%20details%20and%20class%20time." target="_blank" rel="noopener">Join on WhatsApp</a>
+        <a class="btn-outline" href="https://wa.me/447415630691?text=Salaan%20SpeakUp%20English.%20Waxaan%20rabaa%20inaan%20ku%20biiro.%20Heerkaygu%20waa%20____.%20Fadlan%20ii%20soo%20dir%20faahfaahinta%20lacag%20bixinta%20iyo%20waqtiga%20casharka." target="_blank" rel="noopener">Ku biir WhatsApp</a>
+      </div>
+
+      <div class="fineprint">SpeakUp English. Speak every week.</div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <section class="section-divider" id="somali">
+    <div class="container divider-line">
+      <h3 class="divider-label">Af Somali</h3>
+    </div>
+  </section>
+
+  <!-- Somali hero -->
+  <section class="hero section-hero">
+    <div class="container">
+      <div class="hero-wrap">
+        <div>
+          <h1 class="hero-title">Ku hadal Ingiriis toddobaad kasta. Kalsooni dhis si degdeg ah.</h1>
+          <p class="hero-subtitle">Ku celcelin hadal Ingiriis ah oo toos ah, Zoom. Dadka Soomaaliya iyo meel walba — waxaa kugu hagaya macallin Ingiriis ah oo u qalma kana yimid Britain.</p>
+
+          <div class="cta-row">
+            <a class="btn-primary" href="https://wa.me/447415630691?text=Salaan%20SpeakUp%20English.%20Waxaan%20rabaa%20inaan%20ku%20biiro.%20Heerkaygu%20waa%20____.%20Fadlan%20ii%20soo%20dir%20faahfaahinta%20lacag%20bixinta%20iyo%20waqtiga%20casharka." target="_blank" rel="noopener">Ku biir WhatsApp</a>
+            <a class="link-secondary" href="#top">English</a>
+          </div>
+
+          <div class="smallline">Hal cashar Zoom ah Sabti kasta saacadda 8:00 PM (Somalia time). $15 bishii.</div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Macluumaad degdeg ah</h3>
+          <div class="detail-row"><div class="detail-key">Goobta</div><div class="detail-val">Zoom</div></div>
+          <div class="detail-row"><div class="detail-key">Saacadda</div><div class="detail-val">8:00 PM (Somalia time)</div></div>
+          <div class="detail-row"><div class="detail-key">Qiime</div><div class="detail-val">$15 bishii</div></div>
+          <div class="detail-row"><div class="detail-key">Macallin</div><div class="detail-val">Qualified (UK)</div></div>
+          <div class="detail-row"><div class="detail-key">Taageero</div><div class="detail-val">WhatsApp</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Somali: What you get -->
+  <section class="section-benefits">
+    <div class="container">
+      <div class="split">
+        <div>
+          <h2 class="section-title">Waxa aad helaysaa</h2>
+          <ul class="list">
+            <li>Hal cashar Zoom ah toddobaadkii</li>
+            <li>Kooxo yaryar oo breakout rooms ah</li>
+            <li>Heerar kala duwan oo isku fasal ah, hawlo bilow, dhexe, sare</li>
+            <li>Hab hadal oo nidaamsan, qof walba wuu hadlaa</li>
+            <li>Casharka oo la duubo oo la wadaago kadib</li>
+            <li>Warqad tababar toddobaadle ah, ikhtiyaari</li>
+          </ul>
+        </div>
+        <div class="photo">
+          <img src="assets/study.jpg" alt="Barasho" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Somali: How it works -->
+  <section class="section-how">
+    <div class="container">
+      <div class="split">
+        <div class="photo">
+          <img src="assets/chalk.jpg" alt="Ingiriis" loading="lazy">
+        </div>
+        <div>
+          <h2 class="section-title">Sida ay u shaqeyso</h2>
+          <ol class="list-numbered">
+            <li>Farriin noogu soo dir WhatsApp</li>
+            <li>Samee tijaabo kooban oo heerka ah</li>
+            <li>Koox hadal ayaan kugu daraynaa</li>
+            <li>Sabtida ku soo biir Zoom</li>
+            <li>Bishiiba bixi $15 adigoo adeegsanaya mobile money</li>
+          </ol>
+
+          <div class="cta-row" style="margin-top:18px;">
+            <a class="btn-primary" href="https://wa.me/447415630691?text=Salaan%20SpeakUp%20English.%20Waxaan%20rabaa%20inaan%20ku%20biiro.%20Heerkaygu%20waa%20____.%20Fadlan%20ii%20soo%20dir%20faahfaahinta%20lacag%20bixinta%20iyo%20waqtiga%20casharka." target="_blank" rel="noopener">Ku biir WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Somali: Schedule and price -->
+  <section class="section-details">
+    <div class="container">
+      <div class="details-grid">
+        <div class="card">
+          <h3 class="card-title">Jadwal</h3>
+          <div class="detail-row"><div class="detail-key">Maalin</div><div class="detail-val">Sabti</div></div>
+          <div class="detail-row"><div class="detail-key">Inta jeer</div><div class="detail-val">Hal cashar toddobaadkii</div></div>
+          <div class="detail-row"><div class="detail-key">Goobta</div><div class="detail-val">Zoom</div></div>
+          <div class="detail-row"><div class="detail-key">Saacadda</div><div class="detail-val">8:00 PM (Somalia time)</div></div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Qiime</h3>
+          <div class="detail-row"><div class="detail-key">Qiimaha</div><div class="detail-val">$15 bishii</div></div>
+          <div class="detail-row"><div class="detail-key">Lacag bixin</div><div class="detail-val">Mobile money</div></div>
+          <div class="detail-row"><div class="detail-key">Bilow</div><div class="detail-val">Ku biir wakhti kasta</div></div>
+          <div class="detail-row"><div class="detail-key">Muddada</div><div class="detail-val">16 toddobaad, laga bilaabo bilowga</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Somali: Who for -->
+  <section class="section-audience">
+    <div class="container">
+      <div class="split">
+        <div>
+          <h2 class="section-title">Koorsadani waxay ku habboon tahay</h2>
+          <ul class="list">
+            <li>Dadka raba in ay horumariyaan hadalka Ingiriiska</li>
+            <li>Heer kasta, bilow ilaa sare</li>
+            <li>Arday, shaqaale, iyo xirfadlayaal</li>
+            <li>Qof kasta oo raba ku celcelin toddobaadle ah oo kooxeed</li>
+          </ul>
+        </div>
+        <div class="photo">
+          <img src="assets/books.jpg" alt="Buugaag" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Somali: Why -->
+  <section class="section-why">
+    <div class="container">
+      <div class="split">
+        <div class="photo">
+          <img src="assets/library.jpg" alt="Maktabad" loading="lazy">
+        </div>
+        <div>
+          <h2 class="section-title">Maxaa SpeakUp ka dhigaya mid ka duwan</h2>
+          <ul class="list">
+            <li>Hadal ayaa mudnaanta leh, adiga ayaa ku celcelinaya, aniguna waan hagayaa</li>
+            <li>Waqti badan ardayga, waqti yar macallinka</li>
+            <li>Qaab cashar oo isku mid ah toddobaad kasta</li>
+            <li>Heerarka si gaar ah ayaa loo maareeyaa, si fasalku u degganaado</li>
+            <li>Waxaa kugu hagaya macallin Ingiriis ah oo u qalma kana yimid Britain</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Somali: Join -->
+  <section class="section-join">
+    <div class="container">
+      <h2 class="section-title">Ku biir hadda</h2>
+      <p class="lead">Farriin noogu soo dir WhatsApp si aad u bilowdo.</p>
+
+      <div class="cta-row">
+        <a class="btn-primary" href="https://wa.me/447415630691?text=Salaan%20SpeakUp%20English.%20Waxaan%20rabaa%20inaan%20ku%20biiro.%20Heerkaygu%20waa%20____.%20Fadlan%20ii%20soo%20dir%20faahfaahinta%20lacag%20bixinta%20iyo%20waqtiga%20casharka." target="_blank" rel="noopener">Ku biir WhatsApp</a>
+        <a class="btn-outline" href="#top">Back to top</a>
+      </div>
+
+      <div class="fineprint">SpeakUp English. Ku hadal toddobaad kasta.</div>
+    </div>
+  </section>
+</body>
+</html>
